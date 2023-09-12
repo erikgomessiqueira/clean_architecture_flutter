@@ -2,20 +2,16 @@ import 'dart:convert';
 
 import 'package:clean_architecture_flutter/app/modules/search/domain/entities/result_user_search.dart';
 
-class ResultUserSearchModel extends ResultUserSearch {
+class ResultUserSearchModel extends ResultSearch {
   ResultUserSearchModel({
     required super.avatar,
-    required super.name,
     required super.nickname,
-    required super.numberRepositories,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'avatar': avatar,
-      'name': name,
       'nickname': nickname,
-      'numberRepositories': numberRepositories,
     };
   }
 
@@ -23,10 +19,8 @@ class ResultUserSearchModel extends ResultUserSearch {
 
   static ResultUserSearchModel fromMap(Map<String, dynamic> map) {
     return ResultUserSearchModel(
-      avatar: map['avatar'],
-      name: map['name'],
-      nickname: map['nickname'],
-      numberRepositories: map['numberRepositories'],
+      avatar: map['avatar_url'],
+      nickname: map['login'],
     );
   }
 

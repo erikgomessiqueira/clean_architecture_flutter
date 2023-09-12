@@ -9,10 +9,10 @@ class SearchRepositoryImpl implements SearchRepository {
   SearchRepositoryImpl(this.datasource);
 
   @override
-  Future<Either<FailureSearch, List<ResultUserSearch>?>> search(String searchText)
+  Future<Either<FailureSearch, List<ResultSearch>>> getUsers(String searchText)
   async {
     try{
-      final result = await datasource.getSearch(searchText);
+      final result = await datasource.search(searchText);
       return Right(result);
     } on DatasourceError catch(error){
       return Left(error);

@@ -44,23 +44,21 @@ class MockSearchRepository extends _i1.Mock implements _i3.SearchRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.FailureSearch, List<_i6.ResultUserSearch>?>> search(
+  _i4.Future<_i2.Either<_i5.FailureSearch, List<_i6.ResultSearch>>> getUsers(
           String? searchText) =>
       (super.noSuchMethod(
         Invocation.method(
-          #search,
+          #getUsers,
           [searchText],
         ),
         returnValue: _i4.Future<
-                _i2
-                .Either<_i5.FailureSearch, List<_i6.ResultUserSearch>?>>.value(
-            _FakeEither_0<_i5.FailureSearch, List<_i6.ResultUserSearch>?>(
+                _i2.Either<_i5.FailureSearch, List<_i6.ResultSearch>>>.value(
+            _FakeEither_0<_i5.FailureSearch, List<_i6.ResultSearch>>(
           this,
           Invocation.method(
-            #search,
+            #getUsers,
             [searchText],
           ),
         )),
-      ) as _i4
-          .Future<_i2.Either<_i5.FailureSearch, List<_i6.ResultUserSearch>?>>);
+      ) as _i4.Future<_i2.Either<_i5.FailureSearch, List<_i6.ResultSearch>>>);
 }

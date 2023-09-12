@@ -12,21 +12,21 @@ import 'search_by_text_usecase_test.mocks.dart';
 @GenerateMocks([SearchRepository])
 main() {
   final repository = MockSearchRepository();
-  final usecase = SearchUserByTextImpl(repository);
+  final usecase = SearchByTextImpl(repository);
 
   test('deve retornar uma lista de ResultUserSearch', () async {
-    when(repository.search(any))
-        .thenAnswer((_) async => const Right(<ResultUserSearch>[]));
+    when(repository.getUsers(any))
+        .thenAnswer((_) async => const Right(<ResultSearch>[]));
 
     final result = await usecase("Teste");
-    expect(result | null, isA<List<ResultUserSearch>>());
+    expect(result, isA<List<ResultSearch>>());
   });
 
   test(
     'deve retornar uma InvalidTextError caso o texto seja invalido',
     () async {
-      when(repository.search(any))
-          .thenAnswer((_) async => const Right(<ResultUserSearch>[]));
+      when(repository.getUsers(any))
+          .thenAnswer((_) async => const Right(<ResultSearch>[]));
       final result = await usecase('');
       expect(result.isLeft(), true);
       expect(result.fold(id, id), isA<InvalidTextError>());

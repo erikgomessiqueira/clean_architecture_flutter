@@ -1,13 +1,9 @@
-class ResultUserSearch {
+class ResultSearch {
   final String avatar;
-  final String name;
   final String nickname;
-  final int numberRepositories;
 
-  ResultUserSearch({
+  ResultSearch({
     required this.avatar,
-    required this.name,
     required this.nickname,
-    required this.numberRepositories,
   });
 }

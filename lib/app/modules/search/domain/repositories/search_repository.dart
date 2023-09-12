@@ -3,5 +3,5 @@ import 'package:clean_architecture_flutter/app/modules/search/domain/errors/erro
 import 'package:dartz/dartz.dart';
 
 abstract class SearchRepository {
-  Future<Either<FailureSearch, List<ResultUserSearch>?>> search(String searchText);
+  Future<Either<FailureSearch, List<ResultSearch>>> getUsers(String searchText);
 }

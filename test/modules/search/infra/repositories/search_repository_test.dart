@@ -16,18 +16,18 @@ main() {
   final repository = SearchRepositoryImpl(datasource);
 
   test('deve retornar uma lista de ResultUserSearchModel', () async {
-    when(datasource.getSearch(any))
+    when(datasource.search(any))
         .thenAnswer((_) async => <ResultUserSearchModel>[]);
 
-    final result = await repository.search("Teste");
-    expect(result | null, isA<List<ResultUserSearch>>());
+    final result = await repository.getUsers("Teste");
+    expect(result, isA<List<ResultSearch>>());
   });
 
   test('deve retornar um DatasourceError se falhar', () async {
-    when(datasource.getSearch(any))
+    when(datasource.search(any))
         .thenThrow((_) async => Exception());
 
-    final result = await repository.search("Teste");
+    final result = await repository.getUsers("Teste");
     expect(result.fold(id, id), isA<DatasourceError>());
   });
 }

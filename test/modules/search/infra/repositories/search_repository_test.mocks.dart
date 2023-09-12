@@ -31,10 +31,10 @@ class MockSearchDatasource extends _i1.Mock implements _i2.SearchDatasource {
   }
 
   @override
-  _i3.Future<List<_i4.ResultUserSearchModel>> getSearch(String? searchText) =>
+  _i3.Future<List<_i4.ResultUserSearchModel>> search(String? searchText) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getSearch,
+          #search,
           [searchText],
         ),
         returnValue: _i3.Future<List<_i4.ResultUserSearchModel>>.value(

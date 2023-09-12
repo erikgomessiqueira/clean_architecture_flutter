@@ -3,21 +3,21 @@ import 'package:clean_architecture_flutter/app/modules/search/domain/errors/erro
 import 'package:clean_architecture_flutter/app/modules/search/domain/repositories/search_repository.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class ISearchUserByText {
-  Future<Either<FailureSearch, List<ResultUserSearch>?>> call(
+abstract class SearchByText {
+  Future<Either<FailureSearch, List<ResultSearch>>> call(
       String searchText);
 }
 
-class SearchUserByTextImpl implements ISearchUserByText {
+class SearchByTextImpl implements SearchByText {
   final SearchRepository repository;
 
-  SearchUserByTextImpl(this.repository);
+  SearchByTextImpl(this.repository);
 
   @override
-  Future<Either<FailureSearch, List<ResultUserSearch>?>> call(
+  Future<Either<FailureSearch, List<ResultSearch>>> call(
       String searchText) {
     if (searchText.isEmpty) return Future.value(Left(InvalidTextError()));
 
-    return repository.search(searchText);
+    return repository.getUsers(searchText);
   }
 }
